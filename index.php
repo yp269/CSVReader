@@ -25,25 +25,7 @@ class html {
 
     public static function generateTable($records) {
 
-        $count = 0;
-            foreach ($records as $record) {
-
-            if($count == 0) {
-
-                $array = $record->returnArray();
-                $fields = array_key($array);
-                $values = array_values($array);
-                print_r($fields);
-                print_r($values);
-            } else {
-
-                $array = $record->returnAray();
-                $values = array_values($array);
-                print_r($values);
-            }
-
-            $count++;
-        }
+        
     }
 }
 
