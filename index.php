@@ -25,9 +25,24 @@ class html {
 
     public static function generateTable($records) {
 
-        foreach ($records as $record) {
-            $array = $record->returnArray();
-            print_r($array);
+        $count = 0;
+            foreach ($records as $record) {
+
+            if($count == 0) {
+
+                $array = $record->returnArray();
+                $fields = array_key($array);
+                $values = array_values($array);
+                print_r($fields);
+                print_r($values);
+            } else {
+
+                $array = $record->returnAray();
+                $values = array_values($array);
+                print_r($values);
+            }
+
+            $count++;
         }
     }
 }
@@ -36,30 +51,29 @@ class csv {
 
     static public function getRecords($filename) {
 
-        $file = fopen($filename, "r");
 
-        $fieldNames = array();
-
+        $file = fopen($filename,"r");
+        $filedNames = array();
         $count = 0;
 
         while(! feof($file))
         {
-
             $record = fgetcsv($file);
             if($count == 0) {
-                $fieldNames = $record;
+
             } else {
+                $fieldNames = $record;
                 $records[] = recordFactory::create($fieldNames, $record);
             }
             $count++;
         }
-
         fclose($file);
         return $records;
-
     }
-
 }
+        return $records;
+
+
 
 class record {
 
