@@ -59,7 +59,7 @@ class html {
             $count++;
         }
         print("</table>");
-        
+
         print("</html>");
     }
 }
