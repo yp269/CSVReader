@@ -16,7 +16,6 @@ class main {
 
         $table = html::generateTable($records);
 
-
         }
 
 }
