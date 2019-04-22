@@ -28,6 +28,7 @@ class html {
                 crossorigin="anonymous">';
 
         echo'<table class="table table-striped"><thead><tr>';
+
         $count = 0;
         print("<table border='1'>");
         foreach ($records as $record) {
@@ -38,14 +39,14 @@ class html {
                 $values = array_values($array);
                 foreach ($fields as $columnName)
                 {
-                    print("<th>");
+                    print("<th scope='row'>");
                     print_r($columnName);
                     print("</th>");
                 }
                 print("</tr>");
             }
             {
-                print("<tr>");
+                print("<tr class='body'>");
                 $array = $record->returnArray();
                 $values = array_values($array);
                 foreach ($values as $columnValue)
